@@ -1,2 +1,2 @@
-# ants-project
+# ants_project
 Helper files
