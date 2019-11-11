@@ -43,7 +43,7 @@ def build_position_filter(df,lims):
 ### Determine clusters, return labels of clusters ###
 def determine_clusters(x_f,y_f,epsilon,min_samples,filename):
 
-    df = pickle.load(open('../output/%s'%filename,'rb'))
+    df = pickle.load(open(filename,'rb'))
     db = DBSCAN(eps=epsilon, min_samples=min_samples).fit(df[[0,1]].values)
 
     core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
@@ -197,9 +197,9 @@ def interact_box(labels,x_f,y_f,colony,individual=0,setup_type=0,cluster=0):
         plot_hist(df_p,df_pc)
 
 ### Wrapper for interactive function ###
-def save_figure(labels,x_f,y_f,colony,individual,setup_type,cluster):
+def save_figure(labels,x_f,y_f,colony,individual,setup_type,cluster,filepath):
 
-    df = pickle.load(open('../data/umap-cluster-shuffle.pkl','rb'))
+    df = pickle.load(open(filepath+'umap-cluster-shuffle.pkl','rb'))
 
     # Set x_range and y_range in terms of min and max of embedded coordinates
     x_range,y_range = (df[0].max() - df[1].min(),df[1].max() - df[1].min())
