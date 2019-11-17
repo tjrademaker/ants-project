@@ -242,6 +242,6 @@ def save_figure(labels,x_f,y_f,colony,individual,setup_type,cluster,filepath):
         df_pnc = df_p[[not cond for cond in condition]] # Gray datapoints not in the condition
 
         plot_umap(df_pc,df_pnc,lims,[x_f,y_f])
-        plt.savefig('../figures/umap/%s_%d_%d_%d.pdf'%(colony,individual,setup_type,cluster))
+        plt.savefig(filepath+'figures/umap/%s_%d_%d_%d.pdf'%(colony,individual,setup_type,cluster))
         plot_hist(df_p,df_pc)
-        plt.savefig('../figures/hist/%s_%d_%d_%d.pdf'%(colony,individual,setup_type,cluster))
+        plt.savefig(filepath+'figures/hist/%s_%d_%d_%d.pdf'%(colony,individual,setup_type,cluster))
